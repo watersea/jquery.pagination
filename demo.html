@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq分页插件</title>
+    <link rel="stylesheet" href="demo.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="https://cdn.bootcss.com/less.js/3.0.0-pre.4/less.min.js"></script>
+</head>
+<body>
+    <!---------------------最简单的样式demo1---------------------------------------------------->
+    <p><strong>demo1基础使用</strong></p>
+        <hr>
+        <br>
+        <div class="box">
+
+        </div>
+        <br>
+    <hr/>
+    <!-----------------------demo2--------------------------------------------------->
+    <p><strong>demo2 复杂一点的</strong></p>
+    <hr>
+    <br>
+    <div class="box2">
+
+    </div>
+    <br>
+    <hr/>
+<!------------------------------demo3-------------------------------------------->
+    <p><strong>demo3 带有跳转按钮的,当超过最大页数的时候会自动默认最大页数值</strong></p>
+    <hr>
+    <br>
+    <div class="box3">
+
+
+    </div>
+    <br>
+    <hr/>
+<!----------------------------自带插件函数--------------------------------------------------->
+    <p><strong>demo4 自带函数 以具体的分页示例</strong></p>
+    <hr>
+    <br>
+    <div class="box4">
+
+
+    </div>
+    <br>
+    <hr/>
+<!-------------------------------插件的参数配置---------------------------------------------------->
+    <div>
+        <div class="options">
+            <table>
+                <thead>
+                <tr>
+                    <td>参数</td>
+                    <td>默认值</td>
+                    <td class="explain">说明</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>pageCount</td>
+                    <td>9</td>
+                    <td class="explain">总页数</td>
+                </tr>
+                <tr>
+                    <td>totalData</td>
+                    <td>0</td>
+                    <td class="explain">数据总条数</td>
+                </tr>
+                <tr>
+                    <td>current</td>
+                    <td>1</td>
+                    <td class="explain">当前第几页</td>
+                </tr>
+                <tr>
+                    <td>showData</td>
+                    <td>0</td>
+                    <td class="explain">每页显示的条数</td>
+                </tr>
+                <tr>
+                    <td>prevCls</td>
+                    <td>'prev'</td>
+                    <td class="explain">上一页class</td>
+                </tr>
+                <tr>
+                    <td>nextCls</td>
+                    <td>'next'</td>
+                    <td class="explain">下一页class</td>
+                </tr>
+                <tr>
+                    <td>prevContent</td>
+                    <td>'<'</td>
+                    <td class="explain">上一页节点内容</td>
+                </tr>
+                <tr>
+                    <td>nextContent</td>
+                    <td>'>'</td>
+                    <td class="explain">下一页节点内容</td>
+                </tr>
+                <tr>
+                    <td>activeCls</td>
+                    <td>'active'</td>
+                    <td class="explain">当前页选中状态class名</td>
+                </tr>
+                <tr>
+                    <td>count</td>
+                    <td>3</td>
+                    <td class="explain">当前选中页前后页数</td>
+                </tr>
+                <tr>
+                    <td>coping</td>
+                    <td>false</td>
+                    <td class="explain">是否开启首页和末页，值为boolean</td>
+                </tr>
+                <tr>
+                    <td>isHide</td>
+                    <td>false</td>
+                    <td class="explain">总页数为0或1时隐藏分页控件</td>
+                </tr>
+                <tr>
+                    <td>keepShowPN</td>
+                    <td>false</td>
+                    <td class="explain">是否一直显示上一页下一页</td>
+                </tr>
+                <tr>
+                    <td>homePage</td>
+                    <td>''</td>
+                    <td class="explain">首页节点内容，默认为空</td>
+                </tr>
+                <tr>
+                    <td>endPage</td>
+                    <td>''</td>
+                    <td class="explain">尾页节点内容，默认为空</td>
+                </tr>
+                <tr>
+                    <td>jump</td>
+                    <td>false</td>
+                    <td class="explain">是否开启跳转到指定页数，值为boolean类型</td>
+                </tr>
+                <tr>
+                    <td>jumpIptCls</td>
+                    <td>'jump-ipt'</td>
+                    <td class="explain">文本框内容</td>
+                </tr>
+                <tr>
+                    <td>jumpBtnCls</td>
+                    <td>'jump-btn'</td>
+                    <td class="explain">跳转按钮class</td>
+                </tr>
+                <tr>
+                    <td>jumpBtn</td>
+                    <td>'跳转'</td>
+                    <td class="explain">跳转按钮文本内容</td>
+                </tr>
+                <tr>
+                    <td>callback</td>
+                    <td>function(){}</td>
+                    <td class="explain">回调函数，参数"index"为当前页</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="callback">
+            <table>
+                <thead>
+                <tr>
+                    <td>方法</td>
+                    <td>参数</td>
+                    <td>说明</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>getPageCount()</td>
+                    <td>无</td>
+                    <td>获取总页数</td>
+                </tr>
+                <tr>
+                    <td>setPageCount(page)</td>
+                    <td>page：页数</td>
+                    <td>设置总页数</td>
+                </tr>
+                <tr>
+                    <td>getCurrent()</td>
+                    <td>无</td>
+                    <td>获取当前页</td>
+                </tr>
+                <tr>
+                    <td>filling()</td>
+                    <td>无</td>
+                    <td>填充数据，参数为页数</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+      $('.box').pagination({
+          pageCount:10
+      });
+//--------------------------------
+      $('.box2').pagination({
+          pageCount:20,
+          coping:true,
+          homePage:'首页',
+          endPage:'末页',
+          prevContent:'上页',
+          nextContent:'下页'
+      });
+//    -------------------------------
+      $('.box3').pagination({
+          pageCount:50,
+          jump:true,
+          coping:true,
+          homePage:'首页',
+          endPage:'末页',
+          prevContent:'上页',
+          nextContent:'下页'
+      });
+//      -----------------------------
+      $('.box4').pagination({
+          pageCount: 50,
+          jump: true,
+          callback:function(res){
+//         返回的函数很多，这里就把获取当前点击页作为示例
+//              console.log(res)
+              var page = res.getCurrent();
+              console.log(page)//打印点击的页数
+              $.ajax({
+                  url:"链接地址page="+page+"",
+                  type:'get/post/....',
+                  success:function(res){
+                      console.log(res)
+                  }
+              })
+
+          }
+      });
+</script>
+</html>
